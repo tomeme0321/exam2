@@ -13,7 +13,8 @@ class PostsController < ApplicationController
     @post = Post.create(posts_params)
     @post.user_id = current_user.id
     if @post.save
-    redirect_to posts_path, notice: "ブログを更新しました"
+    redirect_to posts_path, notice: "投稿しました"
+    NoticeMailer.sendmail_post(@post).deliver
     else
     render "new"
     end
@@ -37,6 +38,6 @@ class PostsController < ApplicationController
 
   private
   def posts_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :avatar)
   end
 end

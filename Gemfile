@@ -51,3 +51,8 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'rails_12factor', group: :production
 gem 'pg'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'

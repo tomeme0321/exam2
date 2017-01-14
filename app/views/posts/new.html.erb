@@ -11,7 +11,10 @@
      <br>
      <%= f.label :content %>
      <%= f.text_field :content %>
-     <br><br>
+    　<br>
+     <%= f.label :avatar %>
+     <%= f.file_field :avatar %>
+    <br>
      <%= f.submit '投稿する', class: 'btn btn-default btn-sm btn-info' %>
      <br>
      <%= link_to "一覧に戻る", posts_path %>
