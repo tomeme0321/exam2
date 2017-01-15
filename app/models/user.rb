@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   has_many :posts
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
    user = User.find_by(email: auth.info.email)
-
    unless user
      user = User.new(
          name:     auth.extra.raw_info.name,
@@ -40,5 +39,12 @@ class User < ActiveRecord::Base
  end
  def self.create_unique_string
    SecureRandom.uuid
+ end
+ def update_with_password(params, *options)
+   if provider.blank?
+     super
+     params.delete :current_password
+     update_without_password(params, *options)
+   end
  end
 end
