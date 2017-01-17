@@ -3,8 +3,14 @@
       <p id="notice"><%= notice %></p>
     <%= form_for(@post) do |f| %>
      <%= f.error_messages! %>
+     <h1>投稿画面</h2>
+     <%= f.label :タイトル %>
      <%= f.text_field :title, class: 'form-control' %>
+     <br>
+     <%= f.label :内容 %>
      <%= f.text_field :content, class: 'form-control' %>
+     <br>
+     <%= f.label :投稿写真 %>
      <%= f.file_field :avatar %>
     <br>
      <%= f.submit '投稿する', class: 'btn btn-default btn-sm btn-info' %>
